@@ -1,7 +1,7 @@
 var express = require('express')
 ,   app = express()
 ,   fs = require('fs');
-
+//should work
 
 app.use(express.static(__dirname + '/public'));
 
