@@ -1,9 +1,11 @@
-var express = require('express')
-,   app = express()
-,   fs = require('fs');
-//should work
+var express = require('express');
+var fs = require('fs');
+var static = fs.readFileSync('index.html');
+var app = express.createServer(express.logger());
 
-app.use(express.static(__dirname + '/public'));
+app.get('/', function(request, response) {
+  response.send(static.toString('utf-8'));
+});
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
